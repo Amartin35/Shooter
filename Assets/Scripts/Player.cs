@@ -12,17 +12,16 @@ public class Player : MonoBehaviour
     public Transform limitD;
 
     bool onFire = false;
-    bool noPowerUp;
+    bool noPowerUp = true;
+    float nbrPowerUp = 0f;
     float startTime = 0.0f;
     public float shootDelay = 0.5f;
 
     public float horizontalSpeed = 2.0f;
-    public float verticalSpeed = 2.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
 
     }
 
@@ -60,7 +59,7 @@ public class Player : MonoBehaviour
             }
             if (onFire)
             {
-                if (startTime + shootDelay / 8 < Time.time)
+                if (startTime + shootDelay / nbrPowerUp < Time.time)
                 {
                     onFire = false;
                 }
@@ -76,32 +75,23 @@ public class Player : MonoBehaviour
          {
              transform.position = new Vector3(limitL.position.x, transform.position.y, transform.position.z);
          }
-        if (transform.position.y > limitT.position.y)
-        {
-            transform.position = new Vector3(transform.position.x, limitD.position.y, transform.position.z);
-        }
-        if (transform.position.y < limitD.position.y)
-        {
-            transform.position = new Vector3(transform.position.x, limitT.position.y, transform.position.z);
-        }
+
 
 
 
         var h = horizontalSpeed * Input.GetAxis("Mouse X");
         transform.Translate(h, 0, 0);
-        var v = verticalSpeed * Input.GetAxis("Mouse Y");
-        transform.Translate(0, v, 0);
 
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bonus")
         {
             Destroy(collision.gameObject);
             noPowerUp = false;
+            nbrPowerUp += 1;
             print("power up");
+            print(nbrPowerUp);
         }
-    
     }
 }

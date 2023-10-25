@@ -17,10 +17,14 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemies")
+        if(collision.gameObject.tag == "Ennemy")
         {
             Destroy(collision.gameObject);
-            monLoot.monDrop();
+            var dropChance = Random.Range(0, 10);
+            if(dropChance == 3)
+            {
+                monLoot.monDrop();
+            }
             Destroy(gameObject);
         }
     }
