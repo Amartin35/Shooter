@@ -6,10 +6,7 @@ public class Player : MonoBehaviour
 {
     public GameObject bullet;
     public Transform parent;
-    public Transform limitL;
-    public Transform limitR;
-    public Transform limitT;
-    public Transform limitD;
+
 
     bool onFire = false;
     bool noPowerUp = true;
@@ -18,6 +15,9 @@ public class Player : MonoBehaviour
     public float shootDelay = 0.5f;
 
     public float horizontalSpeed = 2.0f;
+    public float verticalSpeed = 2.0f;
+
+    private bool isMouseLocked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +28,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (!isMouseLocked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            isMouseLocked = true;
+        }
 
         if (noPowerUp)
         {
             if (Input.GetMouseButton(0) && onFire == false)
             {
-
                 Instantiate(bullet, parent.position, parent.rotation);
                 onFire = true;
                 startTime = Time.time;
@@ -52,7 +56,6 @@ public class Player : MonoBehaviour
         {
             if (Input.GetMouseButton(0) && onFire == false)
             {
-
                 Instantiate(bullet, parent.position, parent.rotation);
                 onFire = true;
                 startTime = Time.time;
@@ -65,24 +68,17 @@ public class Player : MonoBehaviour
                 }
             }
         }
- 
 
-        if (transform.position.x < limitL.position.x)
-         {
-             transform.position = new Vector3(limitR.position.x, transform.position.y, transform.position.z);
-         }
-         if (transform.position.x > limitR.position.x)
-         {
-             transform.position = new Vector3(limitL.position.x, transform.position.y, transform.position.z);
-         }
+        var horizontalMouv = horizontalSpeed * Input.GetAxis("Mouse X");
+        var verticalMouv = verticalSpeed * Input.GetAxis("Mouse Y");
 
+        float newX = Mathf.Clamp(transform.position.x + horizontalMouv, -5.5f, 5.5f);
+        float newY = Mathf.Clamp(transform.position.y + verticalMouv, -7f, 7f);
 
-
-
-        var h = horizontalSpeed * Input.GetAxis("Mouse X");
-        transform.Translate(h, 0, 0);
+        transform.position = new Vector3(newX, newY, transform.position.z);
 
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bonus")
@@ -93,5 +89,7 @@ public class Player : MonoBehaviour
             print("power up");
             print(nbrPowerUp);
         }
+
+
     }
 }
