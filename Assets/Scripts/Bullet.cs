@@ -9,15 +9,11 @@ public class Bullet : MonoBehaviour
     public GameObject square;
     public Transform parent;
     public Drop monLoot;
-    private ScoreManager scoreManager;
 
     // Start is called before the first frame update
     void Start()
     {
         monRigidBody.velocity = Vector3.up * speed;
-
-       
-        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -30,10 +26,11 @@ public class Bullet : MonoBehaviour
             {
                 monLoot.monDrop();
             }
+            else if (dropChance == 4)
+            {
+                monLoot.monDrop();
+            }
             Destroy(gameObject);
-
-          
-            scoreManager.IncrementScore(10); 
         }
     }
 }

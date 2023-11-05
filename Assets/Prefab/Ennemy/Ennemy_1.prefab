@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6488187506806844336}
   - component: {fileID: 7648189001331404202}
+  - component: {fileID: -3944930021173593613}
   - component: {fileID: 8650566655662361808}
-  - component: {fileID: -3705550030934346023}
   - component: {fileID: -3372976546770059808}
   m_Layer: 0
   m_Name: Ennemy_1
-  m_TagString: Ennemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.04, y: -2.3395696, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,6 +87,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3944930021173593613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6128441405271233860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6b8ff31760df04485ccfccd205c1e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnnemyBullet: {fileID: 6470470209835675063, guid: 0b000ddd77ba0294ead804b57150a929, type: 3}
+  parent: {fileID: 6488187506806844336}
+  bossHitThreshold: 100
+  timeBetweenShots: 0.03
 --- !u!60 &8650566655662361808
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -138,19 +154,6 @@ PolygonCollider2D:
       - {x: 0.5, y: 0}
       - {x: 0.25, y: 0.43359375}
   m_UseDelaunayMesh: 0
---- !u!114 &-3705550030934346023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128441405271233860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48af4d66e074b724d875338702802a8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monEnnemy: {fileID: 0}
 --- !u!50 &-3372976546770059808
 Rigidbody2D:
   serializedVersion: 4
@@ -163,10 +166,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 10000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.02
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

@@ -101,10 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6470470209835675063, guid: a56b1226008b30644bcf65814b9bb2e6, type: 3}
   parent: {fileID: 832744920458073398}
-  limitL: {fileID: 0}
-  limitR: {fileID: 0}
-  limitT: {fileID: 0}
-  limitD: {fileID: 0}
   shootDelay: 0.3
   horizontalSpeed: 0.8
   verticalSpeed: 0.8
