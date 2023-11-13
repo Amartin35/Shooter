@@ -102,7 +102,7 @@ MonoBehaviour:
   EnnemyBullet: {fileID: 6470470209835675063, guid: 0b000ddd77ba0294ead804b57150a929, type: 3}
   parent: {fileID: 6488187506806844336}
   bossHitThreshold: 100
-  timeBetweenShots: 0.03
+  timeBetweenShots: 0.1
 --- !u!60 &8650566655662361808
 PolygonCollider2D:
   m_ObjectHideFlags: 0

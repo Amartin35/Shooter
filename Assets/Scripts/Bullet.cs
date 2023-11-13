@@ -10,11 +10,12 @@ public class Bullet : MonoBehaviour
     public Transform parent;
     public Drop monLoot;
 
-    // Start is called before the first frame update
     void Start()
     {
         monRigidBody.velocity = Vector3.up * speed;
     }
+
+    // GERE LE DROPRATE
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

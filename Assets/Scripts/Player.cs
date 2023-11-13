@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     public Transform parent;
 
-
     bool onFire = false;
     bool noPowerUp = true;
     float nbrPowerUp = 0f;
@@ -19,13 +18,12 @@ public class Player : MonoBehaviour
 
     private bool isMouseLocked = false;
 
-    // Start is called before the first frame update
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!isMouseLocked)
@@ -35,6 +33,7 @@ public class Player : MonoBehaviour
             isMouseLocked = true;
         }
 
+        //----------------------- ZONE POWER UP -----------------------
         if (noPowerUp)
         {
             if (Input.GetMouseButton(0) && onFire == false)
@@ -69,6 +68,7 @@ public class Player : MonoBehaviour
             }
         }
 
+        //----------------------- ZONE DEPLACEMENT JOUEUR -----------------------
         var horizontalMouv = horizontalSpeed * Input.GetAxis("Mouse X");
         var verticalMouv = verticalSpeed * Input.GetAxis("Mouse Y");
 
@@ -78,6 +78,9 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(newX, newY, transform.position.z);
 
     }
+
+    //----------------------- ZONE COLLISION JOUEUR -----------------------
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "EnnemyBullet")
@@ -103,7 +106,6 @@ public class Player : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bonus")
@@ -114,7 +116,5 @@ public class Player : MonoBehaviour
             print("power up");
             print(nbrPowerUp);
         }
-
-
     }
 }

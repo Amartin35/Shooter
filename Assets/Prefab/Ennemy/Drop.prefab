@@ -172,5 +172,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonus: {fileID: 7210300970314548543}
-  dropRate: 0.25
+  dropRate: 0.33
   parent: {fileID: 0}

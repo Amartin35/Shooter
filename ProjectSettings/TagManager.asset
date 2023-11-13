@@ -9,6 +9,7 @@ TagManager:
   - Ennemy
   - Boss
   - EnnemyBullet
+  - Mur
   layers:
   - Default
   - TransparentFX

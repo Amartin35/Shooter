@@ -21,6 +21,7 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
+        //----------------------- ZONE TIR BOSS -----------------------
         timeSinceLastShot += Time.deltaTime;
 
         if (timeSinceLastShot >= timeBetweenShots)
@@ -28,6 +29,8 @@ public class Boss : MonoBehaviour
             Instantiate(EnnemyBullet, parent.position, parent.rotation);
             timeSinceLastShot = 0.0f;
         }
+
+        //----------------------- ZONE DEPLACEMENT BOSS -----------------------
 
         if (transform.position.x > 4f)
         {
@@ -48,6 +51,7 @@ public class Boss : MonoBehaviour
         }
     }
 
+    //----------------------- ZONE COLLISION BOSS -----------------------
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet")

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 62845041261601966}
   - component: {fileID: -4449834146489591130}
   - component: {fileID: 9163096848081925622}
-  - component: {fileID: -5647747777522571021}
   m_Layer: 0
   m_Name: Ennemy_2
   m_TagString: Ennemy
@@ -162,15 +161,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-5647747777522571021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5809110405261020370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48af4d66e074b724d875338702802a8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
