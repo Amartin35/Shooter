@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6b8ff31760df04485ccfccd205c1e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnnemyBullet: {fileID: 6470470209835675063, guid: 0b000ddd77ba0294ead804b57150a929, type: 3}
+  EnnemyBullet: {fileID: 2886785093375117870, guid: acf50eb7de2c20648b89a53457845399, type: 3}
   parent: {fileID: 6488187506806844336}
   bossHitThreshold: 100
-  timeBetweenShots: 0.1
+  timeBetweenShots: 0.34
 --- !u!60 &8650566655662361808
 PolygonCollider2D:
   m_ObjectHideFlags: 0

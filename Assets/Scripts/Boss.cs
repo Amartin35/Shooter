@@ -11,7 +11,7 @@ public class Boss : MonoBehaviour
     private int bossHitCount = 0;
     public int bossHitThreshold = 250;
     public float timeBetweenShots = 0.01f;
-    private float timeSinceLastShot = 0.0f; 
+    private float timeSinceLastShot = 0.0f;
 
     void Start()
     {
@@ -61,6 +61,8 @@ public class Boss : MonoBehaviour
 
             if (bossHitCount >= bossHitThreshold)
             {
+                var myUIScript = FindObjectOfType<UiScript>();
+                myUIScript.SpawnWinText();
                 Destroy(gameObject);
             }
         }

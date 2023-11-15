@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+
     void Start()
     {
         Cursor.visible = false;

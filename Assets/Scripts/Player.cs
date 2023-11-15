@@ -83,25 +83,21 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "EnnemyBullet")
-        {
-
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-
-        }
         if (collision.gameObject.tag == "Ennemy")
         {
 
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            var myUIScript = FindObjectOfType<UiScript>();
+            myUIScript.SpawnLoseText();
 
         }
         if (collision.gameObject.tag == "Boss")
         {
 
-            Destroy(collision.gameObject);
             Destroy(gameObject);
+            var myUIScript = FindObjectOfType<UiScript>();
+            myUIScript.SpawnLoseText();
 
         }
     }
@@ -115,6 +111,15 @@ public class Player : MonoBehaviour
             nbrPowerUp += 1;
             print("power up");
             print(nbrPowerUp);
+        }
+        if (collision.gameObject.tag == "EnnemyBullet")
+        {
+
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+            var myUIScript = FindObjectOfType<UiScript>();
+            myUIScript.SpawnLoseText();
+
         }
     }
 }
